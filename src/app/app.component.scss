@@ -3,3 +3,14 @@
   width: 100%;
   justify-content: space-around;
 }
+
+a {
+  font-size: 2em;
+  text-decoration: none;
+  transition: transform 300ms;
+  transform: scale(1);
+  color: #fff;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
