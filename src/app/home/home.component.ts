@@ -10,7 +10,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   private numbersObsSubscription: Subscription;
   private customObsSubscription: Subscription;
   public puppy: number;
+  public style: object;
+  public clickCount = 0;
   constructor() { }
+
+  handleClick() {
+    this.style = {
+      color: this.clickCount % 2 ? 'red' : 'purple'
+    };
+    this.clickCount++;
+  }
 
   ngOnInit() {
 
@@ -18,6 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const myNumbers = interval(10);
     this.numbersObsSubscription = myNumbers.subscribe(
       (number: number) => {
+        console.log(number);
         this.puppy = number;
       }
     );
