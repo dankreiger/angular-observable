@@ -18,7 +18,12 @@ export class AppComponent implements OnInit {
         observer.next('second package');
       }, 4000);
       setTimeout(() => {
-        observer.error('this is an error');
+        // observer.error('this is an error');
+        observer.complete();
+      }, 5000);
+      setTimeout(() => {
+        // won't arrive here because it's completed
+        observer.next('third package');
       }, 6000);
     });
     myObservable.subscribe(
